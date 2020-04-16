@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.14)
+project(CNF)
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_FLAGS "-Ofast -fsplit-stack")
+
+include_directories(/home/nikolay/Desktop/boost_1_71_0/)
+link_libraries(pthread)
+
+add_executable(CNF main.cpp)
