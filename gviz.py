@@ -1,0 +1,39 @@
+#!/usr/bin/env python
+
+import sys
+import graphviz
+
+def read_graph():
+    graph = []
+    size = int(sys.stdin.readline())
+    for i in range(size):
+        m = map(int, sys.stdin.readline().strip().split())
+        num = next(m)
+        graph.append(list(m))
+    return graph
+
+def read_vector():
+    size = int(sys.stdin.readline())
+    return list(map(int, sys.stdin.readline().strip().split()))
+
+def toOut(num):
+    return 'c' if num == 0 else 'a' + str(num)
+
+graph = graphviz.Digraph(graph_attr={'size' : '12,12', 'fixedsize' : 'true', 'overlap' : 'false', 'dpi' : '200', 'ratio' : 'fill'}, engine='circo')
+
+g = read_graph()
+p = read_vector()
+beg = int(sys.stdin.readline().strip())
+
+for i in range(len(p)):
+    graph.node(str(i), str(p[i] + 1), shape='box' if i == beg else 'circle')
+    if i != beg:
+        graph.node(str(len(p) + i), toOut(i + 1), shape='triangle')
+        graph.edge(str(i), str(len(p) + i))
+    
+for i in range(len(g)):
+    for j in range(len(g[i])):
+        graph.edge(str(i), str(g[i][j]))
+
+graph.render('graph', format='png')
+
