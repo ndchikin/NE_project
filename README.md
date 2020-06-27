@@ -2,7 +2,7 @@
 ## Install
 Install PySAT package:
 ```
-$ pip install python-sat[pblib,aiger]
+$ pip install python-sat
 ```
 Install C++ compiler:
 ```
