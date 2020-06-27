@@ -8,6 +8,11 @@ Install C++ compiler:
 ```
 $ sudo apt install g++
 ```
+Tools for rendering graphs:
+```
+pip install graphviz
+sudo apt-get install graphviz
+```
 Then compile executables:
 ```
 $ sh make.sh
