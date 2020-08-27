@@ -7,16 +7,14 @@ $ git clone https://github.com/ndchikin/NE_project.git
 ```
 Install required packages and reboot:
 ```
+$ cd NE_project
 $ ./install.sh
 $ sudo reboot
 ```
-Make build directory:
+Build and install project:
 ```
 $ mkdir build
 $ cd build
-```
-Build and install project:
-```
 $ cmake ../NE_project/
 $ cmake --build .
 $ cmake --install .
