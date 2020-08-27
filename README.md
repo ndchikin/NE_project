@@ -4,27 +4,27 @@ This project reduces the problem of Nash-solvability in pure stationary strategi
 
 Порядки предпочтения исходов игроками:
 
-*O1: a8 < a2 < c < a5 < a7 < a6 < a4 < a3
-*O2: c < a6 < a3 < a2 < a8 < a7 < a5 < a4
-*O3: a7 < a5 < c < a8 < a6 < a4 < a3 < a2
-*O4: a6 < a8 < c < a7 < a5 < a4 < a3 < a2
+* O1: a8 < a2 < c < a5 < a7 < a6 < a4 < a3
+* O2: c < a6 < a3 < a2 < a8 < a7 < a5 < a4
+* O3: a7 < a5 < c < a8 < a6 < a4 < a3 < a2
+* O4: a6 < a8 < c < a7 < a5 < a4 < a3 < a2
 
 Граф игры:
 
 ![Image of game graph](https://github.com/ndchikin/NE_project/blob/master/graph.png)
 ## Install
 Clone repository:
-```sh
+```console
 $ git clone https://github.com/ndchikin/NE_project.git
 ```
 Install required packages and reboot:
-```sh
+```console
 $ cd NE_project
 $ ./install.sh
 $ sudo reboot
 ```
 Build and install project:
-```sh
+```bash
 $ mkdir build
 $ cd build
 $ cmake ../NE_project/
@@ -32,6 +32,6 @@ $ cmake --build .
 $ cmake --install .
 ```
 Then edit graphs.txt (optionaly), then run project:
-```sh
+```bash
 $ ./start.sh
 ```
