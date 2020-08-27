@@ -25,7 +25,7 @@ $ cmake ../NE_project/
 $ cmake --build .
 $ cmake --install .
 ```
-Then edit graphs.txt if you want, then run project:
+Then edit graphs.txt (optionaly), then run project:
 ```
 $ ./start.sh
 ```
