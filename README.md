@@ -21,6 +21,7 @@ $ git clone https://github.com/ndchikin/NE_project.git
 Install required packages and reboot:
 ```bash
 $ cd NE_project
+$ chmod 0007 install.sh
 $ ./install.sh
 $ sudo reboot
 ```
