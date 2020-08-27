@@ -1,6 +1,6 @@
 # NE_project
-  This project reduces the problem of Nash-solvability in pure stationary strategies of the deterministic n-person games with perfect information and terminal payoffs to CNFSAT problem. The goal is to find an example where the cycle will be the worst outcome for all players and the game will not be Nash-solvable.
-  A "bad" example was found with 4 players, the sum of the number of outcomes worse than cycle is 6 and the place of the cycle from the end is 3.
+This project reduces the problem of Nash-solvability in pure stationary strategies of the deterministic n-person games with perfect information and terminal payoffs to CNFSAT problem. The goal is to find an example where the cycle will be the worst outcome for all players and the game will not be Nash-solvable.  
+A "bad" example was found with 4 players, the sum of the number of outcomes worse than cycle is 6 and the place of the cycle from the end is 3.
 
 Player preferences:
 
