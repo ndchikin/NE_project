@@ -1,24 +1,8 @@
-#include <tuple>
 #include <vector>
 #include <fstream>
-#include <iostream>
+#include <serialization.h>
 
 using namespace std;
-
-struct v {
-    int degree;
-    bool has_t = true;
-    vector<int> in;
-    vector<int> out;
-
-    bool operator==(v &other) {
-        return tie(degree, in, out) == tie(other.degree, other.in, other.out);
-    }
-
-    bool operator!=(v &other) {
-        return tie(degree, in, out) != tie(other.degree, other.in, other.out);
-    }
-};
 
 class players_gen {
 private:
@@ -166,54 +150,8 @@ public:
     }
 };
 
-void read_graph(vector<v> &graph) {
-    int size;
-    if (!(cin >> size)) {
-        exit(0);
-    }
-    graph.resize(size);
-    for (int i = 0, num; i != size; ++i) {
-        cin >> num;
-        graph[i].degree = num;
-        graph[i].out.resize(num);
-        for (int j = 0; j != num; ++j) {
-            cin >> graph[i].out[j];
-        }
-    }
-}
-
-void read_vector(vector<int> &v) {
-    int size;
-    if (!(cin >> size)) {
-        exit(0);
-    }
-    v.resize(size);
-    for (int i = 0; i != size; ++i) {
-        cin >> v[i];
-    }
-}
-
-void write_graph(vector<v> &graph) {
-    cout << graph.size() << endl;
-    for (int i = 0; i != graph.size(); ++i) {
-        cout << graph[i].out.size();
-        for (int j = 0; j != graph[i].out.size(); ++j) {
-            cout << ' ' << graph[i].out[j];
-        }
-        cout << endl;
-    }
-}
-
-void write_vector(vector<int> &v) {
-    cout << v.size() << endl;
-    for (int i = 0; i != v.size(); ++i) {
-        cout << v[i] << ' ';
-    }
-    cout << endl;
-}
-
 int main() {
-    int n1, size;
+    size_t n1, size;
     vector<v> graph;
     vector<vector<int>> players;
     fstream orders("orders.txt", ios::in);
@@ -224,15 +162,15 @@ int main() {
         }
     }
     while (true) {
-        cin >> n1;
+        read_size(n1);
         read_graph(graph);
         players_gen p_gen(graph, n1, players);
         if (p_gen.init()) {
             do {
-                for (int i = 0; i != n1; ++i) {
+                for (size_t i = 0; i != n1; ++i) {
                     write_graph(graph);
                     write_vector(p_gen.p_cur);
-                    cout << i << endl;
+                    write_size(i);
                 }
             } while (p_gen.next());
         }

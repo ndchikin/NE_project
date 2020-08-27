@@ -1,23 +1,7 @@
-#include <tuple>
 #include <vector>
-#include <iostream>
+#include <serialization.h>
 
 using namespace std;
-
-struct v {
-    int degree;
-    bool has_t = true;
-    vector<int> in;
-    vector<int> out;
-
-    bool operator==(v &other) {
-        return tie(degree, in, out) == tie(other.degree, other.in, other.out);
-    }
-
-    bool operator!=(v &other) {
-        return tie(degree, in, out) != tie(other.degree, other.in, other.out);
-    }
-};
 
 class connect {
 private:
@@ -108,52 +92,6 @@ public:
     }
 };
 
-void read_graph(vector<v> &graph) {
-    int size;
-    if (!(cin >> size)) {
-        exit(0);
-    }
-    graph.resize(size);
-    for (int i = 0, num; i != size; ++i) {
-        cin >> num;
-        graph[i].degree = num;
-        graph[i].out.resize(num);
-        for (int j = 0; j != num; ++j) {
-            cin >> graph[i].out[j];
-        }
-    }
-}
-
-void read_vector(vector<int> &v) {
-    int size;
-    if (!(cin >> size)) {
-        exit(0);
-    }
-    v.resize(size);
-    for (int i = 0; i != size; ++i) {
-        cin >> v[i];
-    }
-}
-
-void write_graph(vector<v> &graph) {
-    cout << graph.size() << endl;
-    for (int i = 0; i != graph.size(); ++i) {
-        cout << graph[i].out.size();
-        for (int j = 0; j != graph[i].out.size(); ++j) {
-            cout << ' ' << graph[i].out[j];
-        }
-        cout << endl;
-    }
-}
-
-void write_vector(vector<int> &v) {
-    cout << v.size() << endl;
-    for (int i = 0; i != v.size(); ++i) {
-        cout << v[i] << ' ';
-    }
-    cout << endl;
-}
-
 int main() {
     vector<v> g1, g2;
     vector<int> c_count;
@@ -162,7 +100,7 @@ int main() {
     read_vector(c_count);
     connect g_con(g1, g2, c_count);
     do {
-        cout << g1.size() << endl;
+        write_size(g1.size());
         write_graph(g_con.g_cur);
     } while (g_con.next());
     return 0;
