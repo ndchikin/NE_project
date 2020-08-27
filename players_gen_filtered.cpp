@@ -175,4 +175,5 @@ int main() {
             } while (p_gen.next());
         }
     }
+    return 0;
 }

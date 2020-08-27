@@ -238,4 +238,5 @@ int main() {
         write_vector(players);
         PPH.write_cnf();
     }
+    return 0;
 }

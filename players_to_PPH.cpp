@@ -11,7 +11,7 @@ vector<int> norm_players(vector<v> &graph, vector<int> &players) {
     vector<int> mapping(players.size(), -1);
     while (check) {
         check = false;
-        for (int i = 0; i != players_norm.size(); ++i) {
+        for (size_t i = 0; i != players_norm.size(); ++i) {
             if (mapping[players_norm[i]] == -1) {
                 mapping[players_norm[i]] = dif;
                 check = true;
@@ -19,7 +19,7 @@ vector<int> norm_players(vector<v> &graph, vector<int> &players) {
             }
         }
     }
-    for (int i = 0; i != players_norm.size(); ++i) {
+    for (size_t i = 0; i != players_norm.size(); ++i) {
         players_norm[i] = mapping[players_norm[i]];
     }
     return players_norm;
@@ -34,7 +34,7 @@ int main() {
     read_graph(g2);
     while (cin >> size) {
         players.resize(size);
-        for (int i = 0; i != size; ++i) {
+        for (size_t i = 0; i != size; ++i) {
             cin >> players[i];
         }
         uniq_players.insert(norm_players(g2, players));
@@ -43,4 +43,5 @@ int main() {
         write_graph(g2);
         write_vector(p);
     }
+    return 0;
 }

@@ -138,4 +138,5 @@ int main() {
             write_vector(p_filter.p_cur);
         } while (p_filter.next());
     }
+    return 0;
 }

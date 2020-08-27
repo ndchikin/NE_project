@@ -53,9 +53,9 @@ void write_size(const size_t num) {
 }
 
 void write_vector(const vector<int> &v) {
-    write_size(v.size());
+    cout << v.size();
     for (size_t i = 0; i != v.size(); ++i) {
-        cout << v[i] << ' ';
+        cout << ' ' << v[i];
     }
     cout << endl;
 }

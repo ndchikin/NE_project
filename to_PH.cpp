@@ -227,4 +227,5 @@ int main() {
         write_size(beg);
         PH.write_cnf();
     }
+    return 0;
 }

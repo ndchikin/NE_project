@@ -89,8 +89,7 @@ def write_graph(graph):
 
 
 def read_vector():
-    size = int(sys.stdin.readline())
-    return list(map(int, sys.stdin.readline().strip().split()))
+    return list(map(int, sys.stdin.readline().strip().split()))[1:]
 
 
 def write_vector(v):

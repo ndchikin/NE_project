@@ -1,21 +1,23 @@
 # NE_project
 ## Install
-Clone repository:
+Install PySAT package:
 ```
-$ git clone https://github.com/ndchikin/NE_project.git
+$ pip install python-sat[pblib,aiger]
 ```
-Make build directory:
+Install C++ compiler:
 ```
-$ mkdir build
-$ cd build
+$ sudo apt install g++
 ```
-Build and install project:
+Tools for rendering graphs:
 ```
-$ cmake ../NE_project/
-$ cmake --build .
-$ cmake --install .
+pip install graphviz
+sudo apt-get install graphviz
+```
+Then compile executables:
+```
+$ sh make.sh
 ```
 Then edit graphs.txt if you want, then run project:
 ```
-$ ./start.sh
+$ sh start.sh
 ```
