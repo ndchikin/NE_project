@@ -7,18 +7,16 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 find_package(Python3 COMPONENTS Interpreter REQUIRED)
 
-if(DEFINED ENV{VIRTUAL_ENV} OR DEFINED ENV{CONDA_PREFIX})
-  set(_pip_args)
-else()
-  set(_pip_args "--user")
-endif()
+configure_file(gviz.py.in gviz.py)
+configure_file(solve_PPH.py.in solve_PPH.py)
+configure_file(process_cnf.py.in process_cnf.py)
 
-execute_process(COMMAND ${Python3_EXECUTABLE} -m pip install graphviz ${_pip_args})
-execute_process(COMMAND ${Python3_EXECUTABLE} -m pip install python-sat[pblib,aiger] ${_pip_args})
+set(OWNER_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE)
+set(GROUP_PERMISSIONS GROUP_READ GROUP_WRITE GROUP_EXECUTE)
+set(WORLD_PERMISSIONS WORLD_READ WORLD_WRITE WORLD_EXECUTE)
 
-configure_file(gviz.py.in gviz.py @ONLY)
-configure_file(solve_PPH.py.in solve_PPH.py @ONLY)
-configure_file(process_cnf.py.in process_cnf.py @ONLY)
+file(COPY graphs.txt DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY start.sh DESTINATION ${CMAKE_CURRENT_BINARY_DIR} FILE_PERMISSIONS ${OWNER_PERMISSIONS} ${GROUP_PERMISSIONS} ${WORLD_PERMISSIONS})
 
 include_directories(${PROJECT_SOURCE_DIR})
 
@@ -30,6 +28,3 @@ add_executable(filter_players filter_players.cpp)
 add_executable(players_to_PPH players_to_PPH.cpp)
 add_executable(players_gen_filtered players_gen_filtered.cpp)
 
-install(FILES start.sh graphs.txt
-        PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE
-        DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
