@@ -14,24 +14,22 @@ Game graph:
 
 ![Image of game graph](https://github.com/ndchikin/NE_project/blob/master/graph.png)
 ## Install
+Install required packages and reboot:
+```bash
+$ sudo apt update -y && sudo apt install graphviz python3-dev python3-pip -y
+$ python3 -m pip install cmake graphviz python-sat[pblib,aiger]
+$ sudo reboot
+```
 Clone repository:
 ```bash
 $ git clone https://github.com/ndchikin/NE_project.git
 ```
-Install required packages and reboot:
-```bash
-$ cd NE_project
-$ chmod 0777 install.sh
-$ ./install.sh
-$ sudo reboot
-```
-Build and install project:
+Build project:
 ```bash
 $ mkdir build
 $ cd build
 $ cmake ../NE_project/
 $ cmake --build .
-$ cmake --install .
 ```
 Then edit graphs.txt (optionaly), then run project:
 ```bash
